@@ -1,0 +1,3060 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bajrang General Store | Etawah</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f4f8f5;
+color:#17231d;
+line-height:1.5
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer;border:0}
+
+:root{
+--green:#087443;
+--green2:#0ba85f;
+--dark:#073b28;
+--gold:#ffb703;
+--orange:#fb8500;
+--red:#e63946;
+--white:#fff;
+--muted:#68756e;
+--border:#dce8df;
+--shadow:0 10px 30px rgba(5,55,35,.12)
+}
+
+/* HEADER */
+.header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(255,255,255,.96);
+backdrop-filter:blur(12px);
+box-shadow:0 3px 20px rgba(0,0,0,.08)
+}
+.topbar{
+background:linear-gradient(90deg,var(--dark),var(--green));
+color:white;
+text-align:center;
+padding:7px;
+font-size:13px
+}
+.nav{
+max-width:1400px;
+margin:auto;
+padding:12px 20px;
+display:flex;
+align-items:center;
+gap:18px
+}
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+min-width:max-content
+}
+.logo-img{
+width:52px;height:52px;
+border-radius:16px;
+background:linear-gradient(135deg,var(--green),var(--gold));
+display:grid;
+place-items:center;
+font-size:30px;
+box-shadow:0 6px 18px rgba(8,116,67,.25)
+}
+.logo strong{display:block;font-size:19px;color:var(--dark)}
+.logo small{color:var(--muted)}
+
+.search{
+flex:1;
+display:flex;
+background:#f0f5f1;
+border:2px solid transparent;
+border-radius:14px;
+overflow:hidden;
+transition:.2s
+}
+.search:focus-within{
+border-color:var(--green2);
+background:white
+}
+.search input{
+width:100%;
+border:0;
+outline:0;
+background:transparent;
+padding:13px 16px
+}
+.search button{
+width:52px;
+background:var(--green);
+color:white;
+font-size:19px
+}
+.nav-actions{
+display:flex;
+gap:8px
+}
+.nav-btn{
+position:relative;
+background:#edf7f1;
+color:var(--dark);
+padding:12px 15px;
+border-radius:12px;
+font-weight:700;
+transition:.2s
+}
+.nav-btn:hover{
+transform:translateY(-2px);
+background:#d9f2e3
+}
+.badge{
+position:absolute;
+right:-5px;
+top:-6px;
+background:var(--red);
+color:white;
+border-radius:50%;
+min-width:22px;
+height:22px;
+font-size:12px;
+display:grid;
+place-items:center
+}
+
+/* HERO */
+.hero{
+max-width:1400px;
+margin:22px auto;
+padding:0 20px
+}
+.hero-box{
+border-radius:28px;
+overflow:hidden;
+background:
+radial-gradient(circle at 85% 20%,#ffd166 0 8%,transparent 9%),
+linear-gradient(125deg,#063b29,#087443 55%,#10a95e);
+color:white;
+padding:48px;
+position:relative;
+box-shadow:var(--shadow)
+}
+.hero-box:after{
+content:"🛒";
+position:absolute;
+right:7%;
+bottom:-20px;
+font-size:170px;
+opacity:.12
+}
+.hero-content{position:relative;z-index:2;max-width:720px}
+.hero-kicker{
+display:inline-block;
+background:#ffffff20;
+border:1px solid #ffffff40;
+padding:8px 14px;
+border-radius:30px;
+margin-bottom:16px
+}
+.hero h1{
+font-size:clamp(32px,5vw,64px);
+line-height:1.05;
+margin-bottom:14px
+}
+.hero p{font-size:18px;color:#e4f8eb}
+.hero-buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:25px
+}
+.primary{
+background:var(--gold);
+color:#182000;
+padding:14px 22px;
+border-radius:12px;
+font-weight:800;
+transition:.2s
+}
+.primary:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 20px #0002
+}
+.secondary{
+background:white;
+color:var(--green);
+padding:14px 22px;
+border-radius:12px;
+font-weight:800
+}
+.address{
+display:inline-block;
+margin-top:18px;
+background:#0003;
+padding:9px 14px;
+border-radius:20px;
+font-size:14px
+}
+
+/* CATEGORIES */
+.section{
+max-width:1400px;
+margin:35px auto;
+padding:0 20px
+}
+.section-head{
+display:flex;
+align-items:end;
+justify-content:space-between;
+gap:15px;
+margin-bottom:18px
+}
+.section-head h2{font-size:30px;color:var(--dark)}
+.section-head p{color:var(--muted)}
+.category-row{
+display:flex;
+gap:12px;
+overflow-x:auto;
+padding:5px 2px 14px;
+scrollbar-width:thin
+}
+.category{
+flex:0 0 auto;
+padding:13px 19px;
+border-radius:30px;
+background:white;
+border:1px solid var(--border);
+font-weight:700;
+color:#3c5045;
+transition:.2s;
+box-shadow:0 3px 10px #00000008
+}
+.category:hover,.category.active{
+background:var(--green);
+color:white;
+transform:translateY(-2px)
+}
+
+/* TOOLBAR */
+.toolbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+margin-bottom:20px;
+flex-wrap:wrap
+}
+.sort{
+padding:11px 14px;
+border:1px solid var(--border);
+border-radius:10px;
+background:white;
+outline:0
+}
+.result{font-weight:700;color:var(--muted)}
+
+/* PRODUCTS */
+.grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:18px
+}
+.card{
+background:white;
+border:1px solid var(--border);
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 5px 18px #0000000b;
+transition:.25s;
+position:relative
+}
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(5,60,35,.16);
+border-color:#79c69a
+}
+.card-image{
+height:205px;
+background:linear-gradient(135deg,#e7f6ed,#fff4cf);
+position:relative;
+display:grid;
+place-items:center;
+overflow:hidden
+}
+.card-image .emoji{
+font-size:105px;
+filter:drop-shadow(0 12px 10px #0002);
+transition:.3s
+}
+.card:hover .emoji{transform:scale(1.1)}
+.discount{
+position:absolute;
+top:10px;
+left:10px;
+background:var(--red);
+color:white;
+font-size:12px;
+font-weight:800;
+padding:5px 8px;
+border-radius:7px;
+z-index:2
+}
+.category-tag{
+position:absolute;
+right:10px;
+top:10px;
+background:#ffffffdf;
+color:var(--green);
+font-size:10px;
+font-weight:800;
+padding:5px 8px;
+border-radius:7px
+}
+.card-body{padding:15px}
+.card-category{
+font-size:11px;
+font-weight:800;
+color:var(--green2);
+text-transform:uppercase
+}
+.card h3{
+font-size:16px;
+margin:5px 0;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis
+}
+.unit{font-size:12px;color:var(--muted)}
+.rating{font-size:12px;color:#e6a400;margin:7px 0}
+.price-row{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:8px;
+margin-top:10px
+}
+.price strong{font-size:20px;color:var(--dark)}
+.old{
+font-size:12px;
+color:#999;
+text-decoration:line-through;
+margin-left:4px
+}
+.add{
+background:var(--green);
+color:white;
+padding:9px 12px;
+border-radius:9px;
+font-weight:800;
+font-size:12px;
+transition:.2s
+}
+.add:hover{background:var(--green2);transform:scale(1.04)}
+.view{
+width:100%;
+margin-top:9px;
+background:#edf7f1;
+color:var(--green);
+padding:8px;
+border-radius:9px;
+font-size:12px;
+font-weight:800
+}
+
+/* CART */
+.overlay{
+position:fixed;
+inset:0;
+background:#0008;
+z-index:1500;
+opacity:0;
+pointer-events:none;
+transition:.25s
+}
+.overlay.show{opacity:1;pointer-events:auto}
+
+.cart{
+position:fixed;
+right:-440px;
+top:0;
+bottom:0;
+width:min(430px,100%);
+background:white;
+z-index:1600;
+transition:.3s;
+display:flex;
+flex-direction:column;
+box-shadow:-10px 0 40px #0003
+}
+.cart.show{right:0}
+.cart-head{
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid var(--border)
+}
+.close{
+width:38px;height:38px;
+border-radius:50%;
+background:#edf2ee;
+font-size:22px
+}
+.cart-items{
+flex:1;
+overflow:auto;
+padding:15px
+}
+.cart-item{
+display:flex;
+gap:12px;
+padding:12px 0;
+border-bottom:1px solid var(--border)
+}
+.cart-img{
+width:70px;height:70px;
+border-radius:12px;
+background:#edf7f1;
+display:grid;
+place-items:center;
+font-size:35px;
+flex-shrink:0
+}
+.cart-info{flex:1}
+.cart-info strong{display:block;font-size:14px}
+.cart-info small{color:var(--muted)}
+.qty{
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:8px
+}
+.qty button{
+width:28px;height:28px;
+border-radius:7px;
+background:#e6f4eb;
+color:var(--green);
+font-weight:900
+}
+.remove{
+background:none;
+color:var(--red);
+font-size:12px;
+margin-left:8px
+}
+.cart-bottom{
+padding:18px;
+border-top:1px solid var(--border);
+background:#fafdfb
+}
+.summary-line{
+display:flex;
+justify-content:space-between;
+margin:7px 0
+}
+.total{
+font-size:22px;
+font-weight:900;
+color:var(--dark);
+border-top:1px solid var(--border);
+padding-top:12px;
+margin-top:10px
+}
+.whatsapp{
+width:100%;
+margin-top:14px;
+background:#25d366;
+color:white;
+padding:14px;
+border-radius:12px;
+font-weight:900;
+transition:.2s
+}
+.whatsapp:hover{
+background:#1ebe5d;
+transform:translateY(-2px)
+}
+
+/* MODAL */
+.modal-wrap{
+position:fixed;
+inset:0;
+z-index:2000;
+background:#0009;
+display:none;
+place-items:center;
+padding:18px
+}
+.modal-wrap.show{display:grid}
+.modal{
+background:white;
+width:min(700px,100%);
+max-height:90vh;
+overflow:auto;
+border-radius:22px;
+box-shadow:0 20px 60px #0005;
+animation:pop .2s ease
+}
+@keyframes pop{
+from{transform:scale(.92);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+.modal-head{
+display:flex;
+justify-content:space-between;
+padding:18px;
+border-bottom:1px solid var(--border)
+}
+.detail{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+padding:25px
+}
+.detail-image{
+min-height:320px;
+border-radius:18px;
+background:linear-gradient(135deg,#e7f6ed,#fff0bd);
+display:grid;
+place-items:center;
+font-size:150px
+}
+.detail-info h2{font-size:30px;color:var(--dark)}
+.detail-info .big-price{
+font-size:30px;
+font-weight:900;
+color:var(--green);
+margin:12px 0
+}
+.spec{
+padding:12px;
+background:#f3f8f4;
+border-radius:10px;
+margin:8px 0
+}
+
+/* OWNER */
+.owner{
+display:grid;
+grid-template-columns:120px minmax(0,1fr);
+gap:25px;
+align-items:center;
+background:linear-gradient(135deg,#063b29,#0b7d48);
+color:white;
+padding:30px;
+border-radius:22px;
+overflow:hidden
+}
+.owner-photo{
+width:120px;
+height:120px;
+min-width:120px;
+max-width:120px;
+flex:0 0 120px;
+border-radius:50%;
+overflow:hidden;
+background:#ffffff;
+border:5px solid white;
+display:block;
+position:relative
+}
+.owner-photo img{
+width:100%;
+height:100%;
+min-width:100%;
+min-height:100%;
+max-width:none;
+display:block;
+object-fit:cover;
+object-position:center;
+margin:0;
+padding:0;
+border:0;
+border-radius:0
+}
+.owner h2{font-size:24px;color:white;margin:0}
+.owner p{color:#d8f4e4;margin-top:7px}
+
+/* INFO */
+.info-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px
+}
+.info{
+background:white;
+padding:22px;
+border-radius:18px;
+border:1px solid var(--border);
+box-shadow:0 5px 18px #00000008
+}
+.info-icon{font-size:30px}
+.info h3{margin:7px 0;color:var(--dark)}
+.info p{color:var(--muted)}
+
+/* ACCOUNT */
+.account-box{
+padding:24px
+}
+.account-tabs{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+background:#edf7f1;
+padding:5px;
+border-radius:12px;
+margin-bottom:18px
+}
+.account-tab{
+padding:11px;
+border-radius:9px;
+background:transparent;
+font-weight:800;
+color:var(--green)
+}
+.account-tab.active{
+background:var(--green);
+color:white
+}
+.form-group{margin-bottom:13px}
+.form-group label{
+display:block;
+font-size:13px;
+font-weight:800;
+color:var(--dark);
+margin-bottom:5px
+}
+.form-group input,
+.form-group textarea{
+width:100%;
+padding:12px;
+border:1px solid var(--border);
+border-radius:10px;
+outline:0;
+background:#fbfdfb
+}
+.form-group input:focus,
+.form-group textarea:focus{
+border-color:var(--green2);
+background:white
+}
+.form-group textarea{
+min-height:85px;
+resize:vertical
+}
+.form-error{
+background:#fff0f0;
+color:#c62828;
+padding:10px;
+border-radius:9px;
+font-size:13px;
+margin-bottom:12px;
+display:none
+}
+.form-success{
+background:#edf9f1;
+color:var(--green);
+padding:10px;
+border-radius:9px;
+font-size:13px;
+margin-bottom:12px;
+display:none
+}
+.full-btn{
+width:100%;
+padding:13px;
+border-radius:11px;
+font-weight:900;
+background:var(--green);
+color:white
+}
+.switch-text{
+text-align:center;
+margin-top:13px;
+font-size:13px;
+color:var(--muted)
+}
+.switch-text button{
+background:none;
+color:var(--green);
+font-weight:900
+}
+.account-profile{
+background:linear-gradient(135deg,#edf9f1,#fff7df);
+padding:18px;
+border-radius:15px;
+border:1px solid var(--border)
+}
+.profile-row{
+display:flex;
+gap:12px;
+padding:8px 0;
+border-bottom:1px solid #0000000a
+}
+.profile-row:last-child{border-bottom:0}
+.profile-icon{width:25px}
+.logout{
+margin-top:15px;
+width:100%;
+padding:12px;
+border-radius:10px;
+background:#fff0f0;
+color:var(--red);
+font-weight:900
+}
+
+/* CHECKOUT */
+.checkout-box{
+padding:22px
+}
+.login-required{
+background:#fff7df;
+border:1px solid #ffe08a;
+padding:15px;
+border-radius:12px;
+margin-bottom:15px;
+color:#684f00
+}
+.checkout-title{
+color:var(--dark);
+margin-bottom:15px
+}
+
+/* FOOTER */
+footer{
+margin-top:50px;
+background:#05291c;
+color:white;
+padding:45px 20px
+}
+.footer-grid{
+max-width:1400px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:30px
+}
+footer h2,footer h3{margin-bottom:10px}
+footer p,footer li{color:#b8d2c3}
+footer ul{list-style:none}
+footer li{margin:7px 0}
+.footer-link{
+cursor:pointer;
+transition:.2s
+}
+.footer-link:hover{color:white;transform:translateX(3px)}
+.credit{
+text-align:center;
+border-top:1px solid #ffffff20;
+margin-top:30px;
+padding-top:20px;
+color:#d6eadf
+}
+
+/* BACK TOP */
+.top{
+position:fixed;
+right:20px;
+bottom:20px;
+width:48px;height:48px;
+border-radius:50%;
+background:var(--green);
+color:white;
+z-index:1200;
+font-size:20px;
+box-shadow:0 8px 20px #0003;
+display:none
+}
+.top.show{display:block}
+
+/* EMPTY */
+.empty{
+text-align:center;
+padding:60px;
+background:white;
+border-radius:18px;
+display:none
+}
+
+/* TOAST */
+.toast{
+position:fixed;
+left:50%;
+bottom:25px;
+transform:translate(-50%,30px);
+background:#092f20;
+color:white;
+padding:13px 20px;
+border-radius:12px;
+z-index:3000;
+opacity:0;
+pointer-events:none;
+transition:.25s
+}
+.toast.show{
+opacity:1;
+transform:translate(-50%,0)
+}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+.grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:850px){
+.nav{flex-wrap:wrap}
+.logo{flex:1}
+.search{order:3;flex-basis:100%}
+.grid{grid-template-columns:repeat(3,1fr)}
+.info-grid{grid-template-columns:1fr 1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+.nav{padding:10px 12px}
+.logo strong{font-size:15px}
+.logo small{font-size:10px}
+.nav-btn{padding:10px}
+.hero{padding:0 10px}
+.hero-box{padding:30px 22px;border-radius:20px}
+.hero h1{font-size:36px}
+.section{padding:0 10px}
+.grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.card-image{height:160px}
+.card-image .emoji{font-size:78px}
+.card-body{padding:11px}
+.card h3{font-size:14px}
+.price strong{font-size:17px}
+.add{padding:8px;font-size:11px}
+.detail{grid-template-columns:1fr}
+.detail-image{min-height:240px;font-size:110px}
+.owner{
+grid-template-columns:1fr;
+text-align:center;
+justify-items:center;
+padding:22px 18px;
+gap:15px
+}
+.owner-photo{
+width:100px;
+height:100px;
+min-width:100px;
+max-width:100px;
+flex-basis:100px
+}
+.owner h2{font-size:20px}
+.info-grid,.footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+🚚 Local Delivery • PAC Gali, Etawah • Free Delivery on orders above ₹499
+</div>
+
+<header class="header">
+<nav class="nav">
+
+<div class="logo">
+<div class="logo-img">🛒</div>
+<div>
+<strong>Bajrang General Store</strong>
+<small>PAC Gali, Etawah, UP</small>
+</div>
+</div>
+
+<div class="search">
+<input id="search" type="search" placeholder="Search groceries, snacks, dairy...">
+<button onclick="focusSearch()">🔍</button>
+</div>
+
+<div class="nav-actions">
+<button class="nav-btn" onclick="scrollToProducts()">🛍️ Shop</button>
+
+<button class="nav-btn" id="accountNavBtn" onclick="openAccount()">
+👤 Account
+</button>
+
+<button class="nav-btn" onclick="openCart()">
+🛒 Cart <span id="cartCount" class="badge">0</span>
+</button>
+</div>
+
+</nav>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="hero-box">
+<div class="hero-content">
+
+<span class="hero-kicker">🏪 Your Local Daily-Needs Store</span>
+
+<h1>Everything You Need,<br>Right Around The Corner.</h1>
+
+<p>
+Groceries, snacks, personal care, dairy and household essentials
+from Bajrang General Store.
+</p>
+
+<div class="hero-buttons">
+<button class="primary" onclick="scrollToProducts()">Start Shopping →</button>
+<button class="secondary" onclick="openCart()">View Cart 🛒</button>
+</div>
+
+<div class="address">📍 PAC Gali, Etawah, Uttar Pradesh</div>
+
+</div>
+</div>
+</section>
+
+<section class="section" id="productsSection">
+
+<div class="section-head">
+<div>
+<h2>Shop by Category</h2>
+<p>Choose a category and explore products.</p>
+</div>
+</div>
+
+<div id="categories" class="category-row"></div>
+
+<div class="toolbar">
+<div id="result" class="result"></div>
+
+<select id="sort" class="sort">
+<option value="default">Sort: Recommended</option>
+<option value="low">Price: Low to High</option>
+<option value="high">Price: High to Low</option>
+<option value="name">Name: A-Z</option>
+</select>
+</div>
+
+<div id="products" class="grid"></div>
+
+<div id="empty" class="empty">
+<h2>😕 No products found</h2>
+<p>Try another search or category.</p>
+</div>
+
+</section>
+
+<section class="section">
+<div class="owner">
+
+<div class="owner-photo">
+<img src="images.jpeg" alt="Ankit Pal">
+</div>
+
+<div>
+<h2>Created by Ankit Pal</h2>
+<p>Designed & Developed as a professional local-store e-commerce demo.</p>
+<p>Owner/Developer photo.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<div>
+<h2>Store Information</h2>
+<p>Visit or contact Bajrang General Store.</p>
+</div>
+</div>
+
+<div class="info-grid">
+
+<div class="info">
+<div class="info-icon">📍</div>
+<h3>Our Location</h3>
+<p>PAC Gali, Etawah, Uttar Pradesh</p>
+</div>
+
+<div class="info">
+<div class="info-icon">🕘</div>
+<h3>Business Hours</h3>
+<p>Monday – Sunday<br>8:00 AM – 9:30 PM</p>
+</div>
+
+<div class="info">
+<div class="info-icon">🚚</div>
+<h3>Local Delivery</h3>
+<p>Delivery available around the local Etawah area.</p>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h2>🛒 Bajrang General Store</h2>
+<p>Your local store for groceries, household products and everyday essentials.</p>
+<p style="margin-top:10px">📍 PAC Gali, Etawah, Uttar Pradesh</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<ul>
+<li class="footer-link" onclick="scrollToProducts()">Shop Products</li>
+<li class="footer-link" onclick="openCart()">Shopping Cart</li>
+<li class="footer-link" onclick="openAccount()">Customer Account</li>
+<li class="footer-link" onclick="window.scrollTo({top:0,behavior:'smooth'})">Home</li>
+</ul>
+</div>
+
+<div>
+<h3>Store</h3>
+<ul>
+<li>Daily Grocery</li>
+<li>Personal Care</li>
+<li>Household</li>
+<li>Snacks & Beverages</li>
+</ul>
+</div>
+
+</div>
+
+<div class="credit">
+Designed & Developed by <strong>Ankit Pal</strong> • Bajrang General Store Demo
+</div>
+
+</footer>
+
+<!-- OVERLAY -->
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
+
+<!-- CART -->
+<aside id="cart" class="cart">
+
+<div class="cart-head">
+<h2>🛒 Your Cart</h2>
+<button class="close" onclick="closeCart()">×</button>
+</div>
+
+<div id="cartItems" class="cart-items"></div>
+
+<div class="cart-bottom">
+
+<div class="summary-line">
+<span>Subtotal</span>
+<strong id="subtotal">₹0</strong>
+</div>
+
+<div class="summary-line">
+<span>Delivery</span>
+<strong id="delivery">₹0</strong>
+</div>
+
+<div class="summary-line total">
+<span>Total</span>
+<strong id="total">₹0</strong>
+</div>
+
+<button class="whatsapp" onclick="checkoutWhatsApp()">
+💬 Checkout via WhatsApp
+</button>
+
+</div>
+</aside>
+
+<!-- PRODUCT MODAL -->
+<div id="productModal" class="modal-wrap" onclick="closeProduct(event)">
+<div class="modal">
+
+<div class="modal-head">
+<h2>Product Details</h2>
+<button class="close" onclick="closeProduct()">×</button>
+</div>
+
+<div id="productDetail"></div>
+
+</div>
+</div>
+
+<!-- ACCOUNT MODAL -->
+<div id="accountModal" class="modal-wrap" onclick="closeAccount(event)">
+<div class="modal">
+
+<div class="modal-head">
+<h2 id="accountModalTitle">👤 Customer Account</h2>
+<button class="close" onclick="closeAccount()">×</button>
+</div>
+
+<div class="account-box" id="accountContent"></div>
+
+</div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div id="checkoutModal" class="modal-wrap" onclick="closeCheckout(event)">
+<div class="modal">
+
+<div class="modal-head">
+<h2>🧾 Confirm Order</h2>
+<button class="close" onclick="closeCheckout()">×</button>
+</div>
+
+<div class="checkout-box">
+
+<div id="checkoutLoginMessage"></div>
+
+<h3 class="checkout-title">Customer & Delivery Details</h3>
+
+<div id="checkoutError" class="form-error"></div>
+
+<div class="form-group">
+<label>Full Name *</label>
+<input id="customerName" type="text" placeholder="Enter your full name">
+</div>
+
+<div class="form-group">
+<label>Mobile Number *</label>
+<input id="customerPhone" type="tel" maxlength="10" placeholder="10-digit mobile number">
+</div>
+
+<div class="form-group">
+<label>Gmail / Email *</label>
+<input id="customerEmail" type="email" placeholder="example@gmail.com">
+</div>
+
+<div class="form-group">
+<label>Delivery Address *</label>
+<textarea id="customerAddress" placeholder="House number, street, area, Etawah..."></textarea>
+</div>
+
+<div class="form-group">
+<label>Landmark (Optional)</label>
+<input id="customerLandmark" type="text" placeholder="Nearby landmark">
+</div>
+
+<div class="form-group">
+<label>Delivery Note (Optional)</label>
+<textarea id="deliveryNote" placeholder="Any special delivery instruction"></textarea>
+</div>
+
+<button class="whatsapp" onclick="sendFinalWhatsAppOrder()">
+💬 Confirm & Send Order on WhatsApp
+</button>
+
+</div>
+</div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<button id="topBtn" class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
+</button>
+
+<script>
+
+/* =========================================================
+   BAJRANG GENERAL STORE
+   COMPLETE FRONTEND E-COMMERCE DEMO
+   ========================================================= */
+
+
+/* =========================================================
+   WHATSAPP STORE NUMBER
+   ========================================================= */
+
+const WHATSAPP_NUMBER = "91XXXXXXXXXX";
+
+
+/* =========================================================
+   LOCAL STORAGE KEYS
+   ========================================================= */
+
+const CART_KEY = "bgs_cart";
+const USERS_KEY = "bgs_users";
+const CURRENT_USER_KEY = "bgs_current_user";
+const ORDERS_KEY = "bgs_orders";
+
+
+/* =========================================================
+   CATEGORIES
+   ========================================================= */
+
+const categories=[
+"Grocery","Atta & Rice","Dal & Pulses","Cooking Oil","Masala",
+"Biscuits","Snacks","Chocolates","Tea & Coffee","Cold Drinks",
+"Dairy","Personal Care","Cleaning","Household","Stationery",
+"Pooja Items","Dry Fruits","Sugar & Salt","Sauces","Instant Food"
+];
+
+
+/* =========================================================
+   PRODUCT DATA
+   ========================================================= */
+
+const productNames={
+
+"Grocery":[
+"Daily Grocery Pack","Family Grocery Pack","Premium Grocery Mix"
+],
+
+"Atta & Rice":[
+"Aashirvaad Atta","Fortune Chakki Fresh Atta","India Gate Rice",
+"Daawat Basmati Rice","Sona Masoori Rice"
+],
+
+"Dal & Pulses":[
+"Tata Sampann Toor Dal","Moong Dal","Masoor Dal","Chana Dal"
+],
+
+"Cooking Oil":[
+"Fortune Sunflower Oil","Fortune Mustard Oil","Saffola Gold Oil"
+],
+
+"Masala":[
+"Everest Turmeric Powder","Everest Chilli Powder",
+"MDH Garam Masala","Kitchen King Masala"
+],
+
+"Biscuits":[
+"Parle-G Biscuits","Britannia Good Day","Marie Gold",
+"Hide & Seek","Dark Fantasy"
+],
+
+"Snacks":[
+"Lay's Classic","Kurkure Masala Munch",
+"Aloo Bhujia","Balaji Wafers"
+],
+
+"Chocolates":[
+"Dairy Milk","KitKat","5 Star","Perk"
+],
+
+"Tea & Coffee":[
+"Tata Tea Gold","Red Label Tea","Bru Coffee","Nescafe Classic"
+],
+
+"Cold Drinks":[
+"Coca-Cola","Pepsi","Sprite","Fanta"
+],
+
+"Dairy":[
+"Amul Milk","Amul Butter","Amul Cheese","Amul Paneer"
+],
+
+"Personal Care":[
+"Dove Soap","Lux Soap","Lifebuoy Soap",
+"Dove Shampoo","Colgate Toothpaste"
+],
+
+"Cleaning":[
+"Surf Excel","Ariel Matic","Vim Liquid",
+"Harpic Cleaner","Lizol Cleaner"
+],
+
+"Household":[
+"LED Bulb","AA Battery Pack","Kitchen Sponge","Garbage Bags"
+],
+
+"Stationery":[
+"Classmate Notebook","Cello Pen Pack",
+"Apsara Pencil","Eraser Pack"
+],
+
+"Pooja Items":[
+"Incense Sticks","Camphor Tablets","Cotton Wicks"
+],
+
+"Dry Fruits":[
+"Almonds","Cashews","Raisins"
+],
+
+"Sugar & Salt":[
+"Tata Salt","Madhur Sugar"
+],
+
+"Sauces":[
+"Kissan Tomato Ketchup","Maggi Ketchup"
+],
+
+"Instant Food":[
+"Maggi Noodles","Yippee Noodles","Instant Oats"
+]
+
+};
+
+
+/* =========================================================
+   PRODUCT EMOJIS
+   ========================================================= */
+
+const emojis={
+
+"Grocery":"🛒",
+"Atta & Rice":"🌾",
+"Dal & Pulses":"🫘",
+"Cooking Oil":"🫗",
+"Masala":"🌶️",
+"Biscuits":"🍪",
+"Snacks":"🥨",
+"Chocolates":"🍫",
+"Tea & Coffee":"☕",
+"Cold Drinks":"🥤",
+"Dairy":"🥛",
+"Personal Care":"🧴",
+"Cleaning":"🧹",
+"Household":"🏠",
+"Stationery":"📚",
+"Pooja Items":"🪔",
+"Dry Fruits":"🥜",
+"Sugar & Salt":"🧂",
+"Sauces":"🍅",
+"Instant Food":"🍜"
+
+};
+
+
+/* =========================================================
+   APPLICATION STATE
+   ========================================================= */
+
+let products=[];
+
+let cart=JSON.parse(
+localStorage.getItem(CART_KEY)||"[]"
+);
+
+let selectedCategory="All";
+let searchTerm="";
+let sortMode="default";
+
+
+/* =========================================================
+   CREATE 500 PRODUCTS
+   ========================================================= */
+
+for(let i=1;i<=500;i++){
+
+const category=categories[(i-1)%categories.length];
+
+const names=
+productNames[category]||["Daily Essential"];
+
+const baseName=
+names[(i-1)%names.length];
+
+let price=25+((i*17)%475);
+
+let oldPrice=
+price+15+((i*7)%70);
+
+products.push({
+
+id:"BGS-"+String(i).padStart(4,"0"),
+
+name:
+i<=100
+?baseName
+:`${baseName} ${Math.ceil(i/20)}`,
+
+category,
+
+unit:
+i%3===0
+?"1 kg"
+:i%3===1
+?"500 g"
+:"1 piece",
+
+price,
+
+oldPrice,
+
+rating:
+(4+(i%10)/10).toFixed(1),
+
+emoji:
+emojis[category],
+
+stock:
+10+(i%40)
+
+});
+
+}
+
+
+/* =========================================================
+   HELPERS
+   ========================================================= */
+
+function money(n){
+
+return new Intl.NumberFormat("en-IN",{
+style:"currency",
+currency:"INR",
+maximumFractionDigits:0
+}).format(n);
+
+}
+
+
+function discount(p){
+
+return p.oldPrice>p.price
+?Math.round(
+(p.oldPrice-p.price)/p.oldPrice*100
+)
+:0;
+
+}
+
+
+function toast(message){
+
+const t=document.getElementById("toast");
+
+t.textContent=message;
+
+t.classList.add("show");
+
+setTimeout(
+()=>t.classList.remove("show"),
+1800
+);
+
+}
+
+
+/* =========================================================
+   CATEGORY RENDER
+   ========================================================= */
+
+function renderCategories(){
+
+const el=document.getElementById("categories");
+
+el.innerHTML=
+["All",...categories]
+.map(c=>`
+
+<button
+class="category ${selectedCategory===c?"active":""}"
+onclick="selectCategory('${c.replace(/'/g,"\\'")}')">
+
+${c==="All"?"🛍️":emojis[c]||"🛒"} ${c}
+
+</button>
+
+`).join("");
+
+}
+
+
+function selectCategory(c){
+
+selectedCategory=c;
+
+renderCategories();
+
+renderProducts();
+
+}
+
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+function filteredProducts(){
+
+let list=products.filter(p=>
+
+(
+selectedCategory==="All"||
+p.category===selectedCategory
+)
+
+&&
+
+(
+p.name.toLowerCase()
+.includes(searchTerm.toLowerCase())
+
+||
+
+p.category.toLowerCase()
+.includes(searchTerm.toLowerCase())
+)
+
+);
+
+
+if(sortMode==="low")
+list.sort((a,b)=>a.price-b.price);
+
+if(sortMode==="high")
+list.sort((a,b)=>b.price-a.price);
+
+if(sortMode==="name")
+list.sort(
+(a,b)=>a.name.localeCompare(b.name)
+);
+
+return list;
+
+}
+
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+
+function renderProducts(){
+
+const list=filteredProducts();
+
+const grid=document.getElementById("products");
+
+const empty=document.getElementById("empty");
+
+document.getElementById("result").textContent=
+`${list.length} products found`;
+
+if(!list.length){
+
+grid.innerHTML="";
+
+empty.style.display="block";
+
+return;
+
+}
+
+empty.style.display="none";
+
+grid.innerHTML=list.map(p=>{
+
+const d=discount(p);
+
+const inCart=
+cart.find(x=>x.id===p.id);
+
+return `
+
+<article
+class="card"
+onclick="openProduct('${p.id}')">
+
+<div class="card-image">
+
+${d?
+`<span class="discount">${d}% OFF</span>`
+:""}
+
+<span class="category-tag">
+${p.category}
+</span>
+
+<div class="emoji">${p.emoji}</div>
+
+</div>
+
+<div class="card-body">
+
+<div class="card-category">
+${p.category}
+</div>
+
+<h3 title="${p.name}">
+${p.name}
+</h3>
+
+<div class="unit">
+${p.unit} • ${p.stock} in stock
+</div>
+
+<div class="rating">
+★ ${p.rating} • Store Pick
+</div>
+
+<div class="price-row">
+
+<div class="price">
+
+<strong>
+${money(p.price)}
+</strong>
+
+${p.oldPrice>p.price
+?`<span class="old">${money(p.oldPrice)}</span>`
+:""}
+
+</div>
+
+<button
+class="add"
+onclick="event.stopPropagation();addToCart('${p.id}')">
+
+${inCart?"✓ Added":"Add"}
+
+</button>
+
+</div>
+
+<button
+class="view"
+onclick="event.stopPropagation();openProduct('${p.id}')">
+
+View Details
+
+</button>
+
+</div>
+
+</article>
+
+`;
+
+}).join("");
+
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+document.getElementById("search")
+.addEventListener("input",e=>{
+
+searchTerm=e.target.value;
+
+renderProducts();
+
+});
+
+
+function focusSearch(){
+
+document.getElementById("search").focus();
+
+}
+
+
+/* =========================================================
+   SORT
+   ========================================================= */
+
+document.getElementById("sort")
+.addEventListener("change",e=>{
+
+sortMode=e.target.value;
+
+renderProducts();
+
+});
+
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+function saveCart(){
+
+localStorage.setItem(
+CART_KEY,
+JSON.stringify(cart)
+);
+
+}
+
+
+function addToCart(id){
+
+const item=
+cart.find(x=>x.id===id);
+
+if(item)
+item.qty++;
+
+else
+cart.push({
+id,
+qty:1
+});
+
+saveCart();
+
+renderCart();
+
+renderProducts();
+
+const p=
+products.find(x=>x.id===id);
+
+toast(`${p.name} added to cart`);
+
+}
+
+
+function changeQty(id,amount){
+
+const item=
+cart.find(x=>x.id===id);
+
+if(!item)return;
+
+item.qty+=amount;
+
+if(item.qty<=0){
+
+cart=
+cart.filter(x=>x.id!==id);
+
+}
+
+saveCart();
+
+renderCart();
+
+renderProducts();
+
+}
+
+
+function removeCart(id){
+
+cart=
+cart.filter(x=>x.id!==id);
+
+saveCart();
+
+renderCart();
+
+renderProducts();
+
+toast("Product removed");
+
+}
+
+
+function cartProducts(){
+
+return cart.map(c=>{
+
+const p=
+products.find(x=>x.id===c.id);
+
+return p
+?{...p,qty:c.qty}
+:null;
+
+}).filter(Boolean);
+
+}
+
+
+function renderCart(){
+
+const items=
+cartProducts();
+
+const container=
+document.getElementById("cartItems");
+
+document.getElementById("cartCount")
+.textContent=
+items.reduce(
+(s,p)=>s+p.qty,
+0
+);
+
+
+if(!items.length){
+
+container.innerHTML=`
+
+<div
+style="text-align:center;padding:60px 10px;color:#68756e">
+
+<div style="font-size:60px">
+🛒
+</div>
+
+<h3>Your cart is empty</h3>
+
+<p>Add some products to continue.</p>
+
+</div>
+
+`;
+
+}else{
+
+container.innerHTML=
+items.map(p=>`
+
+<div class="cart-item">
+
+<div class="cart-img">
+${p.emoji}
+</div>
+
+<div class="cart-info">
+
+<strong>
+${p.name}
+</strong>
+
+<small>
+${p.unit} • ${money(p.price)}
+</small>
+
+<div class="qty">
+
+<button
+onclick="changeQty('${p.id}',-1)">
+−
+</button>
+
+<span>
+${p.qty}
+</span>
+
+<button
+onclick="changeQty('${p.id}',1)">
++
+</button>
+
+<button
+class="remove"
+onclick="removeCart('${p.id}')">
+Remove
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+const subtotal=
+items.reduce(
+(s,p)=>s+p.price*p.qty,
+0
+);
+
+const delivery=
+subtotal===0
+?0
+:subtotal>=499
+?0
+:30;
+
+const total=
+subtotal+delivery;
+
+document.getElementById("subtotal")
+.textContent=money(subtotal);
+
+document.getElementById("delivery")
+.textContent=
+delivery===0&&subtotal>0
+?"FREE"
+:money(delivery);
+
+document.getElementById("total")
+.textContent=money(total);
+
+}
+
+
+function openCart(){
+
+document.getElementById("cart")
+.classList.add("show");
+
+document.getElementById("overlay")
+.classList.add("show");
+
+}
+
+
+function closeCart(){
+
+document.getElementById("cart")
+.classList.remove("show");
+
+document.getElementById("overlay")
+.classList.remove("show");
+
+}
+
+
+/* =========================================================
+   PRODUCT DETAILS
+   ========================================================= */
+
+function openProduct(id){
+
+const p=
+products.find(x=>x.id===id);
+
+if(!p)return;
+
+const d=
+discount(p);
+
+document.getElementById("productDetail")
+.innerHTML=`
+
+<div class="detail">
+
+<div class="detail-image">
+${p.emoji}
+</div>
+
+<div class="detail-info">
+
+<div class="card-category">
+${p.category}
+</div>
+
+<h2>${p.name}</h2>
+
+<div class="rating">
+★ ${p.rating} / 5
+</div>
+
+<div class="big-price">
+
+${money(p.price)}
+
+${p.oldPrice>p.price
+?`<span class="old">${money(p.oldPrice)}</span>`
+:""}
+
+</div>
+
+${d
+?`<div class="spec">
+🔥 ${d}% discount available
+</div>`
+:""}
+
+<div class="spec">
+📦 Pack / Unit: ${p.unit}
+</div>
+
+<div class="spec">
+🟢 Stock Available: ${p.stock} units
+</div>
+
+<div class="spec">
+🏪 Bajrang General Store
+</div>
+
+<button
+class="primary"
+style="width:100%;margin-top:15px"
+onclick="addToCart('${p.id}');closeProduct()">
+
+🛒 Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+document.getElementById("productModal")
+.classList.add("show");
+
+}
+
+
+function closeProduct(event){
+
+if(
+event&&
+event.target!==
+document.getElementById("productModal")
+)
+return;
+
+document.getElementById("productModal")
+.classList.remove("show");
+
+}
+
+
+/* =========================================================
+   CUSTOMER ACCOUNT SYSTEM
+   FRONTEND DEMO USING LOCAL STORAGE
+   ========================================================= */
+
+function getUsers(){
+
+return JSON.parse(
+localStorage.getItem(USERS_KEY)||"[]"
+);
+
+}
+
+
+function saveUsers(users){
+
+localStorage.setItem(
+USERS_KEY,
+JSON.stringify(users)
+);
+
+}
+
+
+function getCurrentUser(){
+
+return JSON.parse(
+localStorage.getItem(CURRENT_USER_KEY)||"null"
+);
+
+}
+
+
+function saveCurrentUser(user){
+
+localStorage.setItem(
+CURRENT_USER_KEY,
+JSON.stringify(user)
+);
+
+}
+
+
+function removeCurrentUser(){
+
+localStorage.removeItem(
+CURRENT_USER_KEY
+);
+
+}
+
+
+/* =========================================================
+   ACCOUNT UI
+   ========================================================= */
+
+function updateAccountButton(){
+
+const user=
+getCurrentUser();
+
+const btn=
+document.getElementById("accountNavBtn");
+
+if(user){
+
+btn.innerHTML=
+`👤 ${user.name.split(" ")[0]}`;
+
+}else{
+
+btn.innerHTML=
+"👤 Account";
+
+}
+
+}
+
+
+function openAccount(){
+
+renderAccount();
+
+document.getElementById("accountModal")
+.classList.add("show");
+
+}
+
+
+function closeAccount(event){
+
+if(
+event&&
+event.target!==
+document.getElementById("accountModal")
+)
+return;
+
+document.getElementById("accountModal")
+.classList.remove("show");
+
+}
+
+
+function renderAccount(){
+
+const user=
+getCurrentUser();
+
+const container=
+document.getElementById("accountContent");
+
+if(user){
+
+document.getElementById("accountModalTitle")
+.textContent=
+"👤 My Account";
+
+container.innerHTML=`
+
+<div class="account-profile">
+
+<h3 style="color:var(--dark);margin-bottom:10px">
+Welcome, ${user.name}
+</h3>
+
+<div class="profile-row">
+<div class="profile-icon">👤</div>
+<div>
+<strong>Name</strong><br>
+${user.name}
+</div>
+</div>
+
+<div class="profile-row">
+<div class="profile-icon">📱</div>
+<div>
+<strong>Mobile</strong><br>
+${user.phone}
+</div>
+</div>
+
+<div class="profile-row">
+<div class="profile-icon">📧</div>
+<div>
+<strong>Email</strong><br>
+${user.email}
+</div>
+</div>
+
+<div class="profile-row">
+<div class="profile-icon">📍</div>
+<div>
+<strong>Address</strong><br>
+${user.address}
+</div>
+</div>
+
+</div>
+
+<button
+class="logout"
+onclick="logoutCustomer()">
+
+🚪 Logout
+
+</button>
+
+`;
+
+return;
+
+}
+
+
+document.getElementById("accountModalTitle")
+.textContent=
+"👤 Customer Account";
+
+showLoginForm();
+
+}
+
+
+/* =========================================================
+   LOGIN FORM
+   ========================================================= */
+
+function showLoginForm(){
+
+document.getElementById("accountContent")
+.innerHTML=`
+
+<div class="account-tabs">
+
+<button
+class="account-tab active"
+onclick="showLoginForm()">
+Login
+</button>
+
+<button
+class="account-tab"
+onclick="showSignupForm()">
+Sign Up
+</button>
+
+</div>
+
+<div id="loginError" class="form-error"></div>
+
+<div class="form-group">
+<label>Email / Gmail *</label>
+<input
+id="loginEmail"
+type="email"
+placeholder="example@gmail.com">
+</div>
+
+<div class="form-group">
+<label>Password *</label>
+<input
+id="loginPassword"
+type="password"
+placeholder="Enter password">
+</div>
+
+<button
+class="full-btn"
+onclick="loginCustomer()">
+
+🔐 Login
+
+</button>
+
+<div class="switch-text">
+Don't have an account?
+<button onclick="showSignupForm()">
+Create Account
+</button>
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   SIGNUP FORM
+   ========================================================= */
+
+function showSignupForm(){
+
+document.getElementById("accountContent")
+.innerHTML=`
+
+<div class="account-tabs">
+
+<button
+class="account-tab"
+onclick="showLoginForm()">
+Login
+</button>
+
+<button
+class="account-tab active"
+onclick="showSignupForm()">
+Sign Up
+</button>
+
+</div>
+
+<div id="signupError" class="form-error"></div>
+
+<div class="form-group">
+<label>Full Name *</label>
+<input
+id="signupName"
+type="text"
+placeholder="Enter your full name">
+</div>
+
+<div class="form-group">
+<label>Mobile Number *</label>
+<input
+id="signupPhone"
+type="tel"
+maxlength="10"
+placeholder="10-digit mobile number">
+</div>
+
+<div class="form-group">
+<label>Gmail / Email *</label>
+<input
+id="signupEmail"
+type="email"
+placeholder="example@gmail.com">
+</div>
+
+<div class="form-group">
+<label>Password *</label>
+<input
+id="signupPassword"
+type="password"
+placeholder="Minimum 6 characters">
+</div>
+
+<div class="form-group">
+<label>Confirm Password *</label>
+<input
+id="signupConfirm"
+type="password"
+placeholder="Re-enter password">
+</div>
+
+<div class="form-group">
+<label>Delivery Address *</label>
+<textarea
+id="signupAddress"
+placeholder="House number, street, area, Etawah..."></textarea>
+</div>
+
+<button
+class="full-btn"
+onclick="signupCustomer()">
+
+✨ Create Customer Account
+
+</button>
+
+<div class="switch-text">
+Already have an account?
+<button onclick="showLoginForm()">
+Login
+</button>
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   SIGNUP
+   ========================================================= */
+
+function signupCustomer(){
+
+const name=
+document.getElementById("signupName")
+.value.trim();
+
+const phone=
+document.getElementById("signupPhone")
+.value.trim();
+
+const email=
+document.getElementById("signupEmail")
+.value.trim()
+.toLowerCase();
+
+const password=
+document.getElementById("signupPassword")
+.value;
+
+const confirm=
+document.getElementById("signupConfirm")
+.value;
+
+const address=
+document.getElementById("signupAddress")
+.value.trim();
+
+const error=
+document.getElementById("signupError");
+
+error.style.display="none";
+
+
+if(!name||
+!phone||
+!email||
+!password||
+!confirm||
+!address){
+
+error.textContent=
+"Please fill all required details.";
+
+error.style.display="block";
+
+return;
+
+}
+
+
+if(!/^[6-9]\d{9}$/.test(phone)){
+
+error.textContent=
+"Please enter a valid 10-digit Indian mobile number.";
+
+error.style.display="block";
+
+return;
+
+}
+
+
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+
+error.textContent=
+"Please enter a valid Gmail/email address.";
+
+error.style.display="block";
+
+return;
+
+}
+
+
+if(password.length<6){
+
+error.textContent=
+"Password must contain at least 6 characters.";
+
+error.style.display="block";
+
+return;
+
+}
+
+
+if(password!==confirm){
+
+error.textContent=
+"Password and Confirm Password do not match.";
+
+error.style.display="block";
+
+return;
+
+}
+
+
+const users=
+getUsers();
+
+const duplicate=
+users.find(u=>
+u.email===email||
+u.phone===phone
+);
+
+
+if(duplicate){
+
+error.textContent=
+"An account with this email or mobile number already exists.";
+
+error.style.display="block";
+
+return;
+
+}
+
+
+/*
+Frontend demo only.
+For real production authentication,
+use a secure backend/authentication provider.
+*/
+
+const user={
+
+id:
+"BGSUSER-"+Date.now(),
+
+name,
+
+phone,
+
+email,
+
+password,
+
+address,
+
+createdAt:
+new Date().toISOString()
+
+};
+
+
+users.push(user);
+
+saveUsers(users);
+
+saveCurrentUser(user);
+
+updateAccountButton();
+
+prefillCheckout();
+
+toast("Account created successfully");
+
+closeAccount();
+
+}
+
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+function loginCustomer(){
+
+const email=
+document.getElementById("loginEmail")
+.value.trim()
+.toLowerCase();
+
+const password=
+document.getElementById("loginPassword")
+.value;
+
+const error=
+document.getElementById("loginError");
+
+error.style.display="none";
+
+
+if(!email||!password){
+
+error.textContent=
+"Please enter email and password.";
+
+error.style.display="block";
+
+return;
+
+}
+
+
+const users=
+getUsers();
+
+const user=
+users.find(u=>
+u.email===email&&
+u.password===password
+);
+
+
+if(!user){
+
+error.textContent=
+"Incorrect email or password.";
+
+error.style.display="block";
+
+return;
+
+}
+
+
+saveCurrentUser(user);
+
+updateAccountButton();
+
+prefillCheckout();
+
+toast("Login successful");
+
+closeAccount();
+
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+function logoutCustomer(){
+
+removeCurrentUser();
+
+updateAccountButton();
+
+toast("You have been logged out");
+
+renderAccount();
+
+}
+
+
+/* =========================================================
+   PREFILL CHECKOUT
+   ========================================================= */
+
+function prefillCheckout(){
+
+const user=
+getCurrentUser();
+
+if(!user)return;
+
+const name=
+document.getElementById("customerName");
+
+const phone=
+document.getElementById("customerPhone");
+
+const email=
+document.getElementById("customerEmail");
+
+const address=
+document.getElementById("customerAddress");
+
+if(name)name.value=user.name;
+
+if(phone)phone.value=user.phone;
+
+if(email)email.value=user.email;
+
+if(address)address.value=user.address;
+
+}
+
+
+/* =========================================================
+   UPDATE SAVED CUSTOMER ADDRESS
+   ========================================================= */
+
+function updateSavedAddress(newAddress){
+
+const user=
+getCurrentUser();
+
+if(!user)return;
+
+user.address=newAddress;
+
+saveCurrentUser(user);
+
+const users=
+getUsers();
+
+const index=
+users.findIndex(u=>u.id===user.id);
+
+if(index!==-1){
+
+users[index]=user;
+
+saveUsers(users);
+
+}
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+   ========================================================= */
+
+function checkoutWhatsApp(){
+
+const items=
+cartProducts();
+
+if(!items.length){
+
+toast("Cart is empty");
+
+return;
+
+}
+
+
+/* Customer must login/signup first */
+
+const user=
+getCurrentUser();
+
+if(!user){
+
+closeCart();
+
+openAccount();
+
+toast("Please Login or Sign Up first");
+
+return;
+
+}
+
+
+/* WhatsApp number check */
+
+if(WHATSAPP_NUMBER==="91XXXXXXXXXX"){
+
+toast("Please add WhatsApp number first");
+
+return;
+
+}
+
+
+/* Open checkout */
+
+closeCart();
+
+document.getElementById("checkoutModal")
+.classList.add("show");
+
+document.getElementById("checkoutError")
+.style.display="none";
+
+prefillCheckout();
+
+}
+
+
+/* =========================================================
+   CLOSE CHECKOUT
+   ========================================================= */
+
+function closeCheckout(event){
+
+if(
+event&&
+event.target!==
+document.getElementById("checkoutModal")
+)
+return;
+
+document.getElementById("checkoutModal")
+.classList.remove("show");
+
+}
+
+
+/* =========================================================
+   FINAL WHATSAPP ORDER
+   ========================================================= */
+
+function sendFinalWhatsAppOrder(){
+
+const items=
+cartProducts();
+
+if(!items.length){
+
+toast("Cart is empty");
+
+return;
+
+}
+
+
+const user=
+getCurrentUser();
+
+if(!user){
+
+closeCheckout();
+
+openAccount();
+
+toast("Please Login or Sign Up first");
+
+return;
+
+}
+
+
+const name=
+document.getElementById("customerName")
+.value.trim();
+
+const phone=
+document.getElementById("customerPhone")
+.value.trim();
+
+const email=
+document.getElementById("customerEmail")
+.value.trim();
+
+const address=
+document.getElementById("customerAddress")
+.value.trim();
+
+const landmark=
+document.getElementById("customerLandmark")
+.value.trim();
+
+const note=
+document.getElementById("deliveryNote")
+.value.trim();
+
+const error=
+document.getElementById("checkoutError");
+
+error.style.display="none";
+
+
+if(!name||
+!phone||
+!email||
+!address){
+
+error.textContent=
+"Please fill all required customer and delivery details.";
+
+error.style.display="block";
+
+return;
+
+}
+
+
+if(!/^[6-9]\d{9}$/.test(phone)){
+
+error.textContent=
+"Please enter a valid 10-digit mobile number.";
+
+error.style.display="block";
+
+return;
+
+}
+
+
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+
+error.textContent=
+"Please enter a valid email address.";
+
+error.style.display="block";
+
+return;
+
+}
+
+
+/* Save latest address */
+
+updateSavedAddress(address);
+
+
+/* Calculate bill */
+
+const subtotal=
+items.reduce(
+(s,p)=>s+p.price*p.qty,
+0
+);
+
+const delivery=
+subtotal>=499
+?0
+:30;
+
+const total=
+subtotal+delivery;
+
+
+/* Generate order ID */
+
+const orderId=
+"BGS-"+Date.now().toString().slice(-8);
+
+
+/* Save local order */
+
+const order={
+
+orderId,
+
+customer:{
+name,
+phone,
+email,
+address,
+landmark,
+note
+},
+
+items,
+
+subtotal,
+
+delivery,
+
+total,
+
+createdAt:
+new Date().toISOString()
+
+};
+
+
+const orders=
+JSON.parse(
+localStorage.getItem(ORDERS_KEY)||"[]"
+);
+
+orders.push(order);
+
+localStorage.setItem(
+ORDERS_KEY,
+JSON.stringify(orders)
+);
+
+
+/* WhatsApp message */
+
+let message=
+`Hello Bajrang General Store,
+
+I want to place an order.
+
+Order ID: ${orderId}
+
+Customer Details:
+Name: ${name}
+Mobile: ${phone}
+Email: ${email}
+Address: ${address}`;
+
+if(landmark){
+
+message+=
+`\nLandmark: ${landmark}`;
+
+}
+
+if(note){
+
+message+=
+`\nDelivery Note: ${note}`;
+
+}
+
+
+message+=
+`\n\nOrder Items:\n`;
+
+
+items.forEach((p,i)=>{
+
+message+=
+`${i+1}. ${p.name} x ${p.qty} = ${money(p.price*p.qty)}\n`;
+
+});
+
+
+message+=
+`\nSubtotal: ${money(subtotal)}`+
+`\nDelivery: ${delivery===0?"FREE":money(delivery)}`+
+`\nTotal: ${money(total)}`+
+`\n\nPlease confirm my order.`;
+
+
+/* Open WhatsApp */
+
+const whatsappURL=
+`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+window.open(
+whatsappURL,
+"_blank"
+);
+
+
+closeCheckout();
+
+toast("WhatsApp order message prepared");
+
+}
+
+
+/* =========================================================
+   SCROLL
+   ========================================================= */
+
+function scrollToProducts(){
+
+document.getElementById("productsSection")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+window.addEventListener("scroll",()=>{
+
+document.getElementById("topBtn")
+.classList.toggle(
+"show",
+window.scrollY>500
+);
+
+});
+
+
+/* =========================================================
+   ESC KEY
+   ========================================================= */
+
+document.addEventListener("keydown",e=>{
+
+if(e.key==="Escape"){
+
+closeCart();
+
+document.getElementById("productModal")
+.classList.remove("show");
+
+document.getElementById("accountModal")
+.classList.remove("show");
+
+document.getElementById("checkoutModal")
+.classList.remove("show");
+
+}
+
+});
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+updateAccountButton();
+
+renderCategories();
+
+renderProducts();
+
+renderCart();
+
+console.log(
+`Bajrang General Store loaded with ${products.length} products.`
+);
+
+</script>
+
+</body>
+</html>
